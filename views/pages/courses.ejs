@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<main>
+  <div class="page-header">
+    <h1>Available Courses</h1>
+    <p>Explore our wide range of courses taught by expert instructors</p>
+  </div>
+
+  <div class="courses-grid">
+    <% courses.forEach(course => { %>
+      <div class="course-card">
+        <h2><%= course.name %></h2>
+        <p><%= course.description %></p>
+        <p><strong>Duration:</strong> <%= course.duration %></p>
+        <p><strong>Instructor:</strong> <%= course.instructor_name %></p>
+      </div>
+    <% }); %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
