@@ -88,4 +88,96 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cube = document.getElementById('cube');
+    const spinBtn = document.getElementById('spin-btn');
+    const quizArea = document.getElementById('quiz-area');
+    const questionText = document.getElementById('question-text');
+    const answerButtons = document.getElementById('answer-buttons');
+    const feedback = document.getElementById('feedback');
+  
+    const questions = {
+      'Web Dev': {
+        question: 'What does HTML stand for?',
+        answers: ['HyperText Markup Language', 'HotMail', 'Hyperlinking Text Maps'],
+        correct: 0
+      },
+      'SQL': {
+        question: 'Which SQL command retrieves data?',
+        answers: ['GET', 'SELECT', 'RETRIEVE'],
+        correct: 1
+      },
+      'Cloud': {
+        question: 'What does AWS stand for?',
+        answers: ['Amazon Web Services', 'Advanced Web Storage', 'Automatic Web Sync'],
+        correct: 0
+      },
+      'Design': {
+        question: 'Which tool is best for UI/UX design?',
+        answers: ['Figma', 'Notepad', 'Excel'],
+        correct: 0
+      },
+      'Security': {
+        question: 'What is a strong password example?',
+        answers: ['12345678', 'password1', 'T9u!xR@7eL'],
+        correct: 2
+      },
+      'Networking': {
+        question: 'What device forwards data between networks?',
+        answers: ['Router', 'Keyboard', 'Monitor'],
+        correct: 0
+      }
+    };
+  
+    let xRotation = 0;
+    let yRotation = 0;
+  
+    spinBtn.addEventListener('click', () => {
+      const xRand = Math.floor(Math.random() * 4 + 1) * 90;
+      const yRand = Math.floor(Math.random() * 4 + 1) * 90;
+      xRotation += xRand;
+      yRotation += yRand;
+  
+      cube.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+  
+      // Delay quiz loading until spin completes
+      setTimeout(() => {
+        const faces = ['front', 'right', 'back', 'left', 'top', 'bottom'];
+        const index = Math.floor(Math.random() * faces.length);
+        const face = faces[index];
+        const label = cube.querySelector(`.${face}`).textContent;
+        loadQuestion(label);
+      }, 1500);
+    });
+  
+    function loadQuestion(topic) {
+      const data = questions[topic];
+      if (!data) return;
+  
+      questionText.textContent = data.question;
+      answerButtons.innerHTML = '';
+      feedback.classList.add('hidden');
+  
+      data.answers.forEach((answer, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = answer;
+        btn.setAttribute('data-index', i);
+        btn.setAttribute('aria-label', `Answer: ${answer}`);
+        btn.addEventListener('click', () => {
+          if (i === data.correct) {
+            feedback.textContent = 'Correct!';
+            feedback.style.color = 'green';
+          } else {
+            feedback.textContent = 'Try again.';
+            feedback.style.color = 'red';
+          }
+          feedback.classList.remove('hidden');
+        });
+        answerButtons.appendChild(btn);
+      });
+  
+      document.getElementById('quiz-question').classList.remove('hidden');
+    }
+  });
   

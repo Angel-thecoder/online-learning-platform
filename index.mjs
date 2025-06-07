@@ -168,6 +168,12 @@ app.get('/events/:id', (req, res, next) => {
   }
 });
 
+app.get('/activity', (req, res) => {
+  res.render('pages/activity', {
+    title: 'Quiz Cube Spinner - Online Learning Platform'
+  });
+});
+
 
 // FAQ (static page)
 app.get('/faq', (req, res) => {

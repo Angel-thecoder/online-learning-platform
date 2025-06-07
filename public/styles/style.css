@@ -187,3 +187,95 @@ textarea {
     width: 100%;
   }
 }
+
+/* === Quiz Cube Spinner Styles === */
+#quiz-cube-main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.cube-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+  width: 200px;
+  margin: 2rem auto;
+}
+
+#cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #ffe66d;
+  border: 2px solid #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+#spin-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #f8c000;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+#quiz-area {
+  margin-top: 2rem;
+}
+
+#quiz-question p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#answer-buttons button {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #ddd;
+  border: 1px solid #888;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#answer-buttons button:hover {
+  background-color: #ccc;
+}
+
+#feedback {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: green;
+}
+
+.hidden {
+  display: none;
+}
+
