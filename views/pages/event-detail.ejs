@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<main>
+  <section class="page-header">
+    <h1><%= event.title %></h1>
+    <p><%= event.description %></p>
+    <p><strong>Type:</strong> <%= event.type %></p>
+    <p><strong>Date:</strong> <%= new Date(event.date_time).toLocaleString('en-GB') %></p>
+    <p><strong>Status:</strong> <%= isPast ? '✅ Completed' : '🟢 Registration Open' %></p>
+  </section>
+
+  <section>
+    <h2>Instructor</h2>
+    <p><strong>Name:</strong> <%= event.instructor_name %></p>
+    <p><strong>Bio:</strong> <%= event.instructor_bio %></p>
+  </section>
+
+  <section>
+    <h2>Course</h2>
+    <p><strong>Course:</strong> <%= event.course_name %></p>
+  </section>
+
+  <section>
+    <h2>Materials</h2>
+    <p>Materials and recordings may be available after the event.</p>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
