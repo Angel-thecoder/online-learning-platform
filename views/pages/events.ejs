@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
-<main>
-  <section class="page-header">
-    <h1>Live Sessions & Educational Events</h1>
+<section id="events-page">
+  <header class="page-header">
+    <h1 class="yellow-title">Live Sessions & Educational Events</h1>
     <p>Explore our schedule of workshops, guest lectures, and special sessions.</p>
-  </section>
+  </header>
 
   <section id="filters" aria-label="Event Filters">
     <form id="filter-form">
@@ -33,14 +33,11 @@
         <label for="filter-course">Course:</label>
         <select id="filter-course" name="course">
           <option value="">All</option>
-          <% 
-            const seenCourses = new Set(); 
-            events.forEach(e => {
-              if (e.course_name && !seenCourses.has(e.course_name)) {
-                seenCourses.add(e.course_name); 
-          %>
+          <% const seenCourses = new Set(); events.forEach(e => {
+               if (e.course_name && !seenCourses.has(e.course_name)) {
+                 seenCourses.add(e.course_name); %>
             <option value="<%= e.course_name %>"><%= e.course_name %></option>
-          <% }}) %>
+          <% } }) %>
         </select>
       </div>
 
@@ -48,26 +45,23 @@
         <label for="filter-instructor">Instructor:</label>
         <select id="filter-instructor" name="instructor">
           <option value="">All</option>
-          <% 
-            const seenInstructors = new Set(); 
-            events.forEach(e => {
-              if (e.instructor_name && !seenInstructors.has(e.instructor_name)) {
-                seenInstructors.add(e.instructor_name); 
-          %>
+          <% const seenInstructors = new Set(); events.forEach(e => {
+               if (e.instructor_name && !seenInstructors.has(e.instructor_name)) {
+                 seenInstructors.add(e.instructor_name); %>
             <option value="<%= e.instructor_name %>"><%= e.instructor_name %></option>
-          <% }}) %>
+          <% } }) %>
         </select>
       </div>
     </form>
   </section>
-
-  <section id="event-list" class="courses-grid" aria-label="Event Listings">
+  <h2 id="event-list-heading">Scheduled Events</h2>
+  <section id="event-list" class="courses-grid" aria-labelledby="event-list-heading">
     <% if (events.length === 0) { %>
       <p>No events scheduled at the moment. Please check back soon.</p>
     <% } else { %>
       <% events.forEach(event => { %>
         <article class="course-card">
-          <h2><%= event.title %></h2>
+          <h3><%= event.title %></h3>
           <p><%= event.description %></p>
           <p><strong>Type:</strong> <%= event.type %></p>
           <p><strong>Date:</strong> 
@@ -86,6 +80,6 @@
       <% }) %>
     <% } %>
   </section>
-</main>
+</section>
 
 <%- include('../partials/footer') %>

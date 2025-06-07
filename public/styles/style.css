@@ -166,9 +166,12 @@ textarea {
     padding: 1rem;
   }
 
-  .page-header h1 {
-    font-size: 1.5rem;
+  .page-header {
+    background-color: #222; /* OR try #333 or even #444 */
+    padding: 2rem;
+    color: white;
   }
+  
 
   #filters {
     flex-direction: column;
@@ -278,4 +281,41 @@ textarea {
 .hidden {
   display: none;
 }
+
+.yellow-title {
+  color: #ffeb3b;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+.contact-title {
+  color: #f8f8f8; /* Soft white */
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000; /* Slight shadow for readability */
+}
+
+.yellow-title {
+  color: #ffeb3b;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
+.page-header h1.yellow-title {
+  color: #ffeb3b !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
+
+
 

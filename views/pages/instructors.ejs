@@ -1,19 +1,20 @@
 <%- include('../partials/header') %>
 
-<main>
+<section id="instructors-page">
   <div class="page-header">
     <h1>Meet Our Instructors</h1>
   </div>
-  <div class="courses-grid">
+
+  <section class="courses-grid" aria-label="Instructor Profiles">
     <% instructors.forEach(instructor => { %>
-      <div class="course-card">
+      <article class="course-card">
         <h2><%= instructor.name %></h2>
         <p><%= instructor.bio %></p>
         <p><strong>Contact:</strong> <%= instructor.contact_details %></p>
         <p><strong>Subjects:</strong> <%= instructor.subjects_taught %></p>
-      </div>
+      </article>
     <% }) %>
-  </div>
-</main>
+  </section>
+</section>
 
 <%- include('../partials/footer') %>

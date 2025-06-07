@@ -1,19 +1,34 @@
 <%- include('../partials/header') %>
 
-<main>
-  <div class="page-header">
-    <h1>Frequently Asked Questions</h1>
-  </div>
-  <div class="faq-list">
-    <h3>Q: How do I enroll in a course?</h3>
-    <p>A: Click on the "Courses" tab, choose a course, and follow the instructions.</p>
+<section id="faq-page">
+  <header class="page-header">
+    <h1 class="yellow-title">Frequently Asked Questions</h1>
+    <p>Here are answers to some common questions about the platform, courses, and instructors.</p>
+  </header>
 
-    <h3>Q: Are the events live or pre-recorded?</h3>
-    <p>A: Many of our events are live, especially workshops and Q&A sessions.</p>
+  <section class="faq-list" aria-labelledby="faq-heading">
+    <h2 id="faq-heading" class="visually-hidden">Frequently Asked Questions List</h2>
 
-    <h3>Q: Is the contact form confidential?</h3>
-    <p>A: Yes, all contact submissions are private and reviewed only by staff.</p>
-  </div>
-</main>
+    <article class="faq-item">
+      <h3>How do I register for a course?</h3>
+      <p>Go to the Courses page and click on the course you're interested in. From there, you'll find instructions to register.</p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Can I attend live sessions later?</h3>
+      <p>Yes, all live sessions are recorded and made available to registered learners after the session.</p>
+    </article>
+
+    <article class="faq-item">
+      <h3>How can I contact an instructor?</h3>
+      <p>Visit the Instructors page and use the provided contact details or contact form if available.</p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Is there a cost to participate?</h3>
+      <p>Most courses and events are free. Some special programs may require registration fees, which will be clearly stated.</p>
+    </article>
+  </section>
+</section>
 
 <%- include('../partials/footer') %>

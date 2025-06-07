@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<main>
+<section id="courses-page">
   <div class="page-header">
     <h1>Courses</h1>
     <p>Browse our available courses below or search by name/description.</p>
@@ -12,13 +12,15 @@
     >
   </div>
 
-  <section id="course-results">
+  <h2 id="course-list-heading">Available Courses</h2>
+
+  <section id="course-results" aria-labelledby="course-list-heading">
     <% if (courses.length === 0) { %>
       <p>No courses available.</p>
     <% } else { %>
       <% courses.forEach(course => { %>
         <article class="course-card">
-          <h2><%= course.name %></h2>
+          <h3><%= course.name %></h3>
           <p><%= course.description %></p>
           <p><strong>Duration:</strong> <%= course.duration %></p>
           <p><strong>Instructor:</strong> <%= course.instructor_name %></p>
@@ -26,6 +28,6 @@
       <% }) %>
     <% } %>
   </section>
-</main>
+</section>
 
 <%- include('../partials/footer') %>

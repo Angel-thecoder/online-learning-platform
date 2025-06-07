@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
-<main id="quiz-cube-main">
-  <section class="page-header">
-    <h1>Quiz Cube Spinner</h1>
+<section id="quiz-cube-page">
+  <header class="page-header">
+    <h1 class="yellow-title">Quiz Cube Spinner</h1>
     <p>Click the cube to spin and answer a quiz question from a random course!</p>
-  </section>
+  </header>
 
   <section class="cube-container" aria-label="3D Course Cube">
     <div id="cube" tabindex="0">
@@ -20,11 +20,11 @@
 
   <section id="quiz-area" aria-live="polite">
     <div id="quiz-question" class="hidden">
-      <p id="question-text"></p>
+      <h2 id="question-text">Question will appear here</h2>
       <div id="answer-buttons" role="group" aria-label="Answer choices"></div>
     </div>
     <p id="feedback" role="status" class="hidden"></p>
   </section>
-</main>
+</section>
 
 <%- include('../partials/footer') %>
