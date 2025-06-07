@@ -148,3 +148,42 @@ textarea {
 .course-card a:hover {
   text-decoration: underline;
 }
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  #filters {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .course-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
