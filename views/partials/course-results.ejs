@@ -1,0 +1,13 @@
+<% if (courses.length === 0) { %>
+    <p>No matching courses found.</p>
+  <% } else { %>
+    <% courses.forEach(course => { %>
+      <article class="course-card">
+        <h2><%= course.name %></h2>
+        <p><%= course.description %></p>
+        <p><strong>Duration:</strong> <%= course.duration %></p>
+        <p><strong>Instructor:</strong> <%= course.instructor_name %></p>
+      </article>
+    <% }) %>
+  <% } %>
+  

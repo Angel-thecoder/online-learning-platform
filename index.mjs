@@ -58,6 +58,26 @@ app.get('/courses', (req, res, next) => {
   }
 });
 
+app.get('/courses/search', (req, res) => {
+  try {
+    const query = req.query.q?.toLowerCase() || '';
+
+    const courses = db.prepare(`
+      SELECT c.*, i.name AS instructor_name
+      FROM courses c
+      LEFT JOIN instructors i ON c.instructor_id = i.id
+      WHERE LOWER(c.name) LIKE ? OR LOWER(c.description) LIKE ?
+      ORDER BY c.created_at DESC
+    `).all(`%${query}%`, `%${query}%`);
+
+    res.render('partials/course-results', { courses });
+  } catch (error) {
+    console.error('Search error:', error);
+    res.status(500).send('Server error');
+  }
+});
+
+
 // Instructors
 app.get('/instructors', (req, res, next) => {
   try {

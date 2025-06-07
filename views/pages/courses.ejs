@@ -2,18 +2,30 @@
 
 <main>
   <div class="page-header">
-    <h1>Available Courses</h1>
+    <h1>Courses</h1>
+    <p>Browse our available courses below or search by name/description.</p>
+    <input 
+      type="text" 
+      id="course-search" 
+      placeholder="Search courses..." 
+      aria-label="Search courses"
+    >
   </div>
-  <div class="courses-grid">
-    <% courses.forEach(course => { %>
-      <div class="course-card">
-        <h2><%= course.name %></h2>
-        <p><%= course.description %></p>
-        <p><strong>Duration:</strong> <%= course.duration %></p>
-        <p><strong>Instructor:</strong> <%= course.instructor_name %></p>
-      </div>
-    <% }) %>
-  </div>
+
+  <section id="course-results">
+    <% if (courses.length === 0) { %>
+      <p>No courses available.</p>
+    <% } else { %>
+      <% courses.forEach(course => { %>
+        <article class="course-card">
+          <h2><%= course.name %></h2>
+          <p><%= course.description %></p>
+          <p><strong>Duration:</strong> <%= course.duration %></p>
+          <p><strong>Instructor:</strong> <%= course.instructor_name %></p>
+        </article>
+      <% }) %>
+    <% } %>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
